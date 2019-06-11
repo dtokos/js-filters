@@ -16,7 +16,11 @@ class NormalizedStringFilter extends StringFilter {
 	}
 
 	normalize(value) {
-		return Latinize(value).toLowerCase();
+		return this.latinize(value).toLowerCase();
+	}
+
+	latinize(value) {
+		return Latinize(value);
 	}
 
 }
