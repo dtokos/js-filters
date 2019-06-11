@@ -10,18 +10,9 @@ class NumberRangeFilter extends AbstractFilter {
 
 	passes(filteredItem) {
 		const value = this.getValue(filteredItem);
-		const fromValue = this.getFromValue();
-		const toValue = this.getToValue();
+		const [fromValue, toValue] = this.getFilterValue();
 
 		return this.compare(value, fromValue, toValue);
-	}
-
-	getFromValue() {
-		return this.dataAdapter.getFromValue();
-	}
-
-	getToValue() {
-		return this.dataAdapter.getToValue();
 	}
 
 	compare(value, fromValue, toValue) {
