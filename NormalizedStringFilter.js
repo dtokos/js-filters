@@ -11,7 +11,7 @@ class NormalizedStringFilter extends StringFilter {
 
 	getFilterValue(dataAdapter) {
 		return this.normalize(
-			super.getValue(dataAdapter)
+			super.getFilterValue(dataAdapter)
 		);
 	}
 
