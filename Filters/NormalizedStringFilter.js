@@ -1,5 +1,5 @@
 import StringFilter from './StringFilter';
-import Latinize from './Latinize';
+import Latinize from '../Utils/Latinize';
 
 class NormalizedStringFilter extends StringFilter {
 
