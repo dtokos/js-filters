@@ -4,6 +4,7 @@ import LesserNumberFilter from './Filters/LesserNumber';
 import GreaterNumberFilter from './Filters/GreaterNumber';
 import NumberRangeFilter from './Filters/NumberRange';
 import SomeTypeFilter from './Filters/SomeType';
+import EveryTypeFilter from './Filters/EveryType';
 
 export {
 	StringFilter,
@@ -12,6 +13,7 @@ export {
 	GreaterNumberFilter,
 	NumberRangeFilter,
 	SomeTypeFilter,
+	EveryTypeFilter,
 };
 
 export default {
@@ -21,4 +23,5 @@ export default {
 	greaterNumber: GreaterNumberFilter,
 	numberRange: NumberRangeFilter,
 	someType: SomeTypeFilter,
+	everyType: EveryTypeFilter,
 };
