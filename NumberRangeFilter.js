@@ -2,25 +2,26 @@ import Filter from './Filter';
 
 class NumberRangeFilter extends Filter {
 
-	constructor(allowSameFromValue = false, allowSameToValue = false) {
+	constructor(dataAdapter, allowSameFromValue = false, allowSameToValue = false) {
+		super(dataAdapter);
 		this.allowSameFromValue = allowSameFromValue;
 		this.allowSameToValue = allowSameToValue;
 	}
 
-	passes(dataAdapter) {
-		const value = this.getValue(dataAdapter);
-		const fromValue = this.getFromValue(dataAdapter);
-		const toValue = this.getToValue(dataAdapter);
+	passes(filteredItem) {
+		const value = this.getValue(filteredItem);
+		const fromValue = this.getFromValue();
+		const toValue = this.getToValue();
 
 		return this.compare(value, fromValue, toValue);
 	}
 
-	getFromValue(dataAdapter) {
-		return dataAdapter.getFromValue();
+	getFromValue() {
+		return this.dataAdapter.getFromValue();
 	}
 
-	getToValue(dataAdapter) {
-		return dataAdapter.getToValue();
+	getToValue() {
+		return this.dataAdapter.getToValue();
 	}
 
 	compare(value, fromValue, toValue) {

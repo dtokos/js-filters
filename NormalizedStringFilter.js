@@ -3,15 +3,15 @@ import Latinize from './Latinize';
 
 class NormalizedStringFilter extends StringFilter {
 
-	getValue(dataAdapter) {
+	getValue(filteredItem) {
 		return this.normalize(
-			super.getValue(dataAdapter)
+			super.getValue(filteredItem)
 		);
 	}
 
-	getFilterValue(dataAdapter) {
+	getFilterValue() {
 		return this.normalize(
-			super.getFilterValue(dataAdapter)
+			super.getFilterValue()
 		);
 	}
 

@@ -1,18 +1,22 @@
 class Filter {
 
-	passes(dataAdapter) {
-		const value = this.getValue(dataAdapter);
-		const filterValue = this.getFilterValue(dataAdapter);
+	constructor(dataAdapter) {
+		this.dataAdapter = dataAdapter;
+	}
+
+	passes(filteredItem) {
+		const value = this.getValue(filteredItem);
+		const filterValue = this.getFilterValue();
 
 		return this.compare(value, filterValue);
 	}
 
-	getValue(dataAdapter) {
-		return dataAdapter.getValue();
+	getValue(filteredItem) {
+		return this.dataAdapter.getValue(filteredItem);
 	}
 
-	getFilterValue(dataAdapter) {
-		return dataAdapter.getFilterValue();
+	getFilterValue() {
+		return this.dataAdapter.getFilterValue();
 	}
 
 }

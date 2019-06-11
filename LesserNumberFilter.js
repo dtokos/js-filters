@@ -2,7 +2,8 @@ import Filter from './Filter';
 
 class LesserNumberFilter extends Filter {
 
-	constructor(allowSameValue = false) {
+	constructor(dataAdapter, allowSameValue = false) {
+		super(dataAdapter);
 		this.allowSameValue = allowSameValue;
 	}
 
