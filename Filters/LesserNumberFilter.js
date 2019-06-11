@@ -1,6 +1,6 @@
-import Filter from './Filter';
+import AbstractFilter from './AbstractFilter';
 
-class LesserNumberFilter extends Filter {
+class LesserNumberFilter extends AbstractFilter {
 
 	constructor(dataAdapter, allowSameValue = false) {
 		super(dataAdapter);

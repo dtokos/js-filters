@@ -1,6 +1,6 @@
-import Filter from './Filter';
+import AbstractFilter from './AbstractFilter';
 
-class NumberRangeFilter extends Filter {
+class NumberRangeFilter extends AbstractFilter {
 
 	constructor(dataAdapter, allowSameFromValue = false, allowSameToValue = false) {
 		super(dataAdapter);

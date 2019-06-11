@@ -1,4 +1,4 @@
-class Filter {
+class AbstractFilter {
 
 	constructor(dataAdapter) {
 		this.dataAdapter = dataAdapter;
@@ -21,4 +21,4 @@ class Filter {
 
 }
 
-export default Filter;
+export default AbstractFilter;
