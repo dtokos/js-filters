@@ -1,4 +1,4 @@
-import LesserNumberFilter from './LesserNumberFilter';
+import LesserNumberFilter from './LesserNumber';
 
 class GreaterNumberFilter extends LesserNumberFilter {
 

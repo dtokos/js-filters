@@ -1,4 +1,4 @@
-import AbstractFilter from './AbstractFilter';
+import AbstractFilter from './Abstract';
 
 class LesserNumberFilter extends AbstractFilter {
 
