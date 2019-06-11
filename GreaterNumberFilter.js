@@ -7,3 +7,5 @@ class GreaterNumberFilter extends LesserNumberFilter {
 	}
 
 }
+
+export default GreaterNumberFilter;
