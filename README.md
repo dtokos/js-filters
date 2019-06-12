@@ -4,7 +4,11 @@ This library is used for filtering. It can be used to filter variables or elemen
 # Table of contents
 1. [Introduction](#js-filters)
 2. [Table of contents](#table-of-contents)
-3. [Documentation](#documentation)
+3. [Installation](#installation)
+4. [Usage](#usage)
+	1. [Basic HTML Example](#basic-html-example)
+	2. [Basic JS Example](#basic-js-example)
+5. [Documentation](#documentation)
 	1. [Available filters](#available-filters)
 		1. [AbstractFilter](#abstractfilter)
 		2. [StringFilter](#stringfilter)
@@ -19,6 +23,132 @@ This library is used for filtering. It can be used to filter variables or elemen
 	4. [Filters](#filters)
 	5. [Utils](#utils)
 		1. [Latinize](#latinize)
+
+# Installation
+This package is currently available only on github. To get the latest version, run the following command:
+```bash
+$ npm i -s github:dtokos/js-filters#1.0.0
+```
+Or you can add following to your `package.json` and then run `npm i`:
+```json
+"dependencies": {
+  "js-filters": "dtokos/js-filters#1.0.0"
+}
+```
+For more information you can read npm documentation [here.](https://docs.npmjs.com/cli/install)
+
+# Usage
+This package is comosed from 3 objects: 
+- [Filters](#available-filters)
+- [DataAdapter](#dataadapter)
+- [FilterHandler](#filterhandler)
+
+You can import objects described above in multiple ways:
+```javascript
+// This library contains facade wich provides access to all filters and objects described above.
+// You can use the default export and use the following methods:
+import Filters from 'js-filters';
+Filters.dataAdapter(...);
+Filters.filterHandler(...);
+Filters.string(...);
+Filters.normalizedString(...);
+Filters.lesserNumber(...);
+Filters.greaterNumber(...);
+Filters.numberRange(...);
+Filters.someType(...);
+Filters.everyType(...);
+
+// Or you can import objects individually and use them directly:
+import { StringFilter, DataAdapter, FilterHandler } from 'js-filters';
+
+// Alternativelly there is facade that only contains filters:
+import Filters from 'js-filters/Filters';
+```
+
+If you don't want to use facades, you can import all objects individually:
+```javascript
+import DataAdapter from 'js-filters/DataAdapter';
+import FilterHandler from 'js-filters/Handler';
+import StringFilter from 'js-filters/Filters/String';
+```
+
+## Basic HTML Example
+`index.html`
+```html
+<input type="text" name="filter">
+<ul id="list">
+  <li>apple</li>
+  <li>banana</li>
+  <li>orange</li>
+  <li>avocado</li>
+  <li>tomato</li>
+</ul>
+```
+`index.js`
+```javascript
+import DataAdapter from 'js-filters/DataAdapter';
+import FilterHandler from 'js-filters/Handler';
+import StringFilter from 'js-filters/Filters/String';
+
+const filterElement = document.querySelector('[name="filter"]');
+const getItems = () => document.querySelectorAll('#list li');
+const adapter = new DataAdapter(
+  filterElement,
+  filteredItem => filteredItem.textContent,
+  filter => filter.value
+);
+const filters = [
+  new StringFilter(adapter),
+];
+
+const handler = new FilterHandler(filters, getItems);
+
+filterElement.addEventListener('change', function() {
+  handler.filterIterationCallback((item, passed) => {
+    if (passed)
+      item.style.display = 'list-item';
+    else
+      item.style.display = 'none';
+  });
+});
+```
+
+## Basic JS Example
+`index.html`
+```html
+<input type="text" name="filter">
+```
+`index.js`
+```javascript
+import DataAdapter from 'js-filters/DataAdapter';
+import FilterHandler from 'js-filters/Handler';
+import StringFilter from 'js-filters/Filters/String';
+
+const items = ['apple', 'banana','orange','avocado', 'tomato'];
+
+const filterElement = document.querySelector('[name="filter"]');
+const getItems = () => items;
+const adapter = new DataAdapter(
+  filterElement,
+  filteredItem => filteredItem,
+  filter => filter.value
+);
+const filters = [
+  new StringFilter(adapter),
+];
+
+const handler = new FilterHandler(filters, getItems);
+
+filterElement.addEventListener('change', function() {
+  handler.filterIterationCallback((item, passed) => {
+    if (passed)
+      console.log(`Item ${item} PASSED the validation`);
+    else
+      console.log(`Item ${item} FAILED the validation`);
+  });
+});
+
+```
 
 # Documentation
 

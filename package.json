@@ -1,0 +1,17 @@
+{
+  "name": "js-filters",
+  "version": "1.0.0",
+  "description": "This library is used for filtering. It can be used to filter variables or elements. It does this using DataAdapters which provide the required data for Filter. This library has no external dependencies but it's designed to be used with webpack and babel.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dtokos/js-filters.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dtokos/js-filters/issues"
+  },
+  "homepage": "https://github.com/dtokos/js-filters#readme"
+}
