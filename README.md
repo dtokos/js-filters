@@ -51,7 +51,7 @@ any getFilterValue();
 This class is used to strictly filter substrings. It **is** case sensitive and distinguishes between accents.
 
 **Dependencies:**
-- AbstractFilter
+- [AbstractFilter](#abstractfilter)
 
 **Methods:**
 ```javascript
@@ -63,8 +63,8 @@ bool compare(value, filterValue);
 This class is used to loosely filter substrings. It **is not** case sensitive and does not distiniguish between accents.
 
 **Dependencies:**
-- StringFilter
-- Latinize
+- [StringFilter](#stringfilter)
+- [Latinize](#latinize)
 
 **Methods:**
 ```javascript
@@ -85,7 +85,7 @@ string latinize(value);
 This class is used to filter numeric values that are lesser (and optionally equal) than the filter value.
 
 **Dependencies:**
-- AbstractFilter
+- [AbstractFilter](#abstractfilter)
 
 **Methods:**
 ```javascript
@@ -103,7 +103,7 @@ void setAllowSameValue(allowSameValue);
 This class is used to filter numeric values that are greater (and optionally equal) than the filter value;
 
 **Dependencies:**
-- LesserNumberFilter
+- [LesserNumberFilter](#lessernumberfilter)
 
 **Methods:**
 ```javascript
@@ -115,7 +115,7 @@ bool compare(value, filterValue);
 This class is used to filter numeric values that are inside given range.
 
 **Dependencies:**
-- AbstractFilter
+- [AbstractFilter](#abstractfilter)
 
 **Methods:**
 ```javascript
@@ -133,7 +133,7 @@ bool compare(value, fromValue, toValue);
 This class is used to filter values that can have only certain number of possible values. You can for example filter items that have certain state. This filter checks if the item under validation has **at least one** of the filtered values.
 
 **Dependencies:**
-- AbstractFilter
+- [AbstractFilter](#abstractfilter)
 
 ```javascript
 // Determines if values contain at least one value from filterValues.
@@ -144,7 +144,7 @@ bool compare(values, filterValues);
 This class is used to filter values that can have only certain number of possible values. You can for example filter items that have certain state. This filter checks if the item under validation has **every** of the filtered values.
 
 **Dependencies:**
-- AbstractFilter
+- [AbstractFilter](#abstractfilter)
 
 **Methods:**
 ```javascript
