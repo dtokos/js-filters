@@ -32,7 +32,7 @@ $ npm i -s github:dtokos/js-filters#1.0.0
 Or you can add following to your `package.json` and then run `npm i`:
 ```json
 "dependencies": {
-  "js-filters": "dtokos/js-filters#1.0.0"
+  "js-filters": "github:dtokos/js-filters#1.0.0"
 }
 ```
 For more information you can read npm documentation [here.](https://docs.npmjs.com/cli/install)
