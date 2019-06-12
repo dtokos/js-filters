@@ -12,6 +12,9 @@ class NumberRangeFilter extends AbstractFilter {
 		const value = this.getValue(filteredItem);
 		const [fromValue, toValue] = this.getFilterValue();
 
+		if (Number.isNaN(fromValue) || Number.isNaN(toValue))
+			return true;
+
 		return this.compare(value, fromValue, toValue);
 	}
 
