@@ -1,4 +1,3 @@
-
 # js-filters
 This library is used for filtering. It can be used to filter variables or elements. It does this using DataAdapters which provide the required data for Filter. This library has no external dependencies but it's designed to be used with webpack and babel.
 
@@ -7,24 +6,24 @@ This library is used for filtering. It can be used to filter variables or elemen
 2. [Table of contents](#table-of-contents)
 3. [Installation](#installation)
 4. [Usage](#usage)
-  1. [Basic HTML Example](#basic-html-example)
-  2. [Basic JS Example](#basic-js-example)
-  3. [More examples](#more-examples)
+	1. [Basic HTML Example](#basic-html-example)
+	2. [Basic JS Example](#basic-js-example)
+	3. [More examples](#more-examples)
 5. [Documentation](#documentation)
-  1. [Available filters](#available-filters)
-    1. [AbstractFilter](#abstractfilter)
-    2. [StringFilter](#stringfilter)
-    3. [NormalizedStringFilter](#normalizedstringfilter)
-    4. [LesserNumberFilter](#lessernumberfilter)
-    5. [GreaterNumberFilter](#greaternumberfilter)
-    6. [NumberRangeFilter](#numberrangefilter)
-    7. [SomeTypeFilter](#sometypefilter)
-    8. [EveryTypeFilter](#everytypefilter)
-  2. [DataAdapter](#dataadapter)
-  3. [FilterHandler](#filterhandler)
-  4. [Filters](#filters)
-  5. [Utils](#utils)
-    1. [Latinize](#latinize)
+	1. [Available filters](#available-filters)
+		1. [AbstractFilter](#abstractfilter)
+		2. [StringFilter](#stringfilter)
+		3. [NormalizedStringFilter](#normalizedstringfilter)
+		4. [LesserNumberFilter](#lessernumberfilter)
+		5. [GreaterNumberFilter](#greaternumberfilter)
+		6. [NumberRangeFilter](#numberrangefilter)
+		7. [SomeTypeFilter](#sometypefilter)
+		8. [EveryTypeFilter](#everytypefilter)
+	2. [DataAdapter](#dataadapter)
+	3. [FilterHandler](#filterhandler)
+	4. [Filters](#filters)
+	5. [Utils](#utils)
+		1. [Latinize](#latinize)
 
 # Installation
 This package is currently available only on github. To get the latest version, run the following command:
