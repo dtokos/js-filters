@@ -91,7 +91,7 @@ import StringFilter from 'js-filters/Filters/String';
 `index.js`
 ```javascript
 import DataAdapter from 'js-filters/DataAdapter';
-import FilterHandler from 'js-filters/Handler';
+import GetterFilterHandler from 'js-filters/GetterHandler';
 import StringFilter from 'js-filters/Filters/String';
 
 const filterElement = document.querySelector('[name="filter"]');
@@ -105,7 +105,7 @@ const filters = [
   new StringFilter(adapter),
 ];
 
-const handler = new FilterHandler(filters, getItems);
+const handler = new GetterFilterHandler(filters, getItems);
 
 filterElement.addEventListener('change', function() {
   handler.filterIterationCallback((item, passed) => {
@@ -125,7 +125,7 @@ filterElement.addEventListener('change', function() {
 `index.js`
 ```javascript
 import DataAdapter from 'js-filters/DataAdapter';
-import FilterHandler from 'js-filters/Handler';
+import GetterFilterHandler from 'js-filters/GetterHandler';
 import StringFilter from 'js-filters/Filters/String';
 
 const items = ['apple', 'banana','orange','avocado', 'tomato'];
@@ -141,7 +141,7 @@ const filters = [
   new StringFilter(adapter),
 ];
 
-const handler = new FilterHandler(filters, getItems);
+const handler = new GetterFilterHandler(filters, getItems);
 
 filterElement.addEventListener('change', function() {
   handler.filterIterationCallback((item, passed) => {
@@ -151,7 +151,6 @@ filterElement.addEventListener('change', function() {
       console.log(`Item ${item} FAILED the validation`);
   });
 });
-
 ```
 
 ## More Examples
