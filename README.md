@@ -53,6 +53,7 @@ You can import objects described above in multiple ways:
 import Filters from 'js-filters';
 Filters.dataAdapter(...);
 Filters.filterHandler(...);
+Filters.getterFilterHandler(...);
 Filters.string(...);
 Filters.normalizedString(...);
 Filters.lesserNumber(...);
