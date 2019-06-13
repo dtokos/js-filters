@@ -1,20 +1,14 @@
 class FilterHandler {
 
-	constructor(filters, itemsGetter) {
+	constructor(filters) {
 		this.filters = filters;
-		this.itemsGetter = itemsGetter;
 	}
 
 	getFilters() {
 		return this.filters;
 	}
 
-	getItems() {
-		return this.itemsGetter();
-	}
-
-	filterBoolean() {
-		const items = this.getItems();
+	filterBoolean(items) {
 		const result = [];
 
 		for (const item of items)
@@ -23,8 +17,7 @@ class FilterHandler {
 		return result;
 	}
 
-	filterObject() {
-		const items = this.getItems();
+	filterObject(items) {
 		const result = {
 			passed: [],
 			failed: []
@@ -39,8 +32,7 @@ class FilterHandler {
 		return result;
 	}
 
-	filterCallback(callback) {
-		const items = this.getItems();
+	filterCallback(items, callback) {
 		const passed = [];
 		const failed = [];
 
@@ -53,9 +45,7 @@ class FilterHandler {
 		callback(passed, failed);
 	}
 
-	filterIterationCallback(iterationCallback) {
-		const items = this.getItems();
-
+	filterIterationCallback(items, iterationCallback) {
 		for (const item of items) {
 			const passed = this.filterItem(item);
 			iterationCallback(item, passed);

@@ -20,7 +20,9 @@ This library is used for filtering. It can be used to filter variables or elemen
 		7. [SomeTypeFilter](#sometypefilter)
 		8. [EveryTypeFilter](#everytypefilter)
 	2. [DataAdapter](#dataadapter)
-	3. [FilterHandler](#filterhandler)
+	3. [Filter Handlers](#filter-handlers)
+		1. [FilterHandler](#filterhandler)
+		2. [GetterFilterHandler](#getterfilterhandler)
 	4. [Filters](#filters)
 	5. [Utils](#utils)
 		1. [Latinize](#latinize)
@@ -28,12 +30,12 @@ This library is used for filtering. It can be used to filter variables or elemen
 # Installation
 This package is currently available only on github. To get the latest version, run the following command:
 ```bash
-$ npm i -s github:dtokos/js-filters#1.0.0
+$ npm i -s github:dtokos/js-filters#1.0.1
 ```
 Or you can add following to your `package.json` and then run `npm i`:
 ```json
 "dependencies": {
-  "js-filters": "github:dtokos/js-filters#1.0.0"
+  "js-filters": "github:dtokos/js-filters#1.0.1"
 }
 ```
 For more information you can read npm documentation [here.](https://docs.npmjs.com/cli/install)
@@ -301,19 +303,54 @@ any getValue(filteredItem);
 any getFilterValue();
 ```
 
-## FilterHandler
-This class uses givens filters to filter given data.
+## Filter Handlers
+These classes are used to filter given data using provided filters.
+
+### FilterHandler
+This class uses given filters to filter given data. Data is passed each time as argument to filtering method.
+
+**Methods:**
+```javascript
+// Initializes filters property with given filters.
+FilterHandler constructor(filters);
+
+// Getter for filters.
+Array<Filter> getFilters();
+
+// Filters given items using given filters.
+// Returns array of bools that determine if particular item passed the validation.
+Array<bool> filterBoolean(items);
+
+// Filters given items using given filters.
+// Returns object with two properties that contains array of items that passed/failed the valiadation.
+Object filterObject(items);
+
+// Filters given items using given filters.
+// Calls provided callback at the end of filtering with two arrays of items that passed/failed the validation.
+void filterCallback(items, callback);
+
+// Filters given items using given filters.
+// Calls provided callback for each given item individually with item that was validated and bool that determines if the given item passed/failed the validation.
+void filterIterationCallback(items, iterationCallback);
+
+// Determines if given item passed all given filters.
+bool filterItem(item);
+```
+
+
+### GetterFilterHandler
+This class uses givens filters to filter given data. Data is retrieved using getter passed to constructor.
+
+**Dependencies:**
+- [FilterHandler](#filterhandler)
 
 **Methods:**
 ```javascript
 // Initializes filters and itemsGetter properties with given filters and itemsGetter.
 FilterHandler constructor(filters, itemsGetter);
 
-// Getter for filters.
-Array<Filter> getFilters();
-
 // Getter for items that will be validated.
-any getItems();
+Array<any> getItems();
 
 // Filters given items using given filters.
 // Returns array of bools that determine if particular item passed the validation.
@@ -330,9 +367,6 @@ void filterCallback(callback);
 // Filters given items using given filters.
 // Calls provided callback for each given item individually with item that was validated and bool that determines if the given item passed/failed the validation.
 void filterIterationCallback(iterationCallback);
-
-// Determines if given item passed all given filters.
-bool filterItem(item);
 ```
 
 ## Filters

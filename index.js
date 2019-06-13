@@ -1,5 +1,6 @@
 import DataAdapter from './DataAdapter';
 import FilterHandler from './Handler';
+import GetterFilterHandler from './GetterHandler';
 import Filters from './Filters';
 import StringFilter from './Filters/String';
 import NormalizedStringFilter from './Filters/NormalizedString';
@@ -12,6 +13,7 @@ import EveryTypeFilter from './Filters/EveryType';
 export {
 	DataAdapter,
 	FilterHandler,
+	GetterFilterHandler,
 	Filters,
 	StringFilter,
 	NormalizedStringFilter,
@@ -25,6 +27,7 @@ export {
 export default {
 	dataAdapter: DataAdapter,
 	filterHandler: FilterHandler,
+	getterFilterHandler: GetterFilterHandler,
 	string: StringFilter,
 	normalizedString: NormalizedStringFilter,
 	lesserNumber: LesserNumberFilter,
